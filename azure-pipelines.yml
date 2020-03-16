@@ -19,3 +19,11 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
+  - task: AzureWebApp@1
+    inputs:
+      azureSubscription: 'Free Trial (137fef96-d937-4a63-8c1c-6d0ba4316a5c)'
+      appType: 'webAppLinux'
+      appName: 'nodejsappproject'
+      package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+      runtimeStack: 'NODE|12-lts'
+      startUpCommand: 'npm start'
